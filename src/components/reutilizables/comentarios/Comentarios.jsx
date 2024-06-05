@@ -49,12 +49,17 @@ export default function Comentarios({ section }) {
       const respuesta = await axios.get(
         `${urlComment}/GetBySection/${section}`
       );
+
       if (respuesta.data.success) {
         const comentariosConAsteriscos = respuesta.data.data.map((comment) => ({
           ...comment,
           userName: comment.userName.substring(0, 4) + "***",
         }));
         setComentarios(comentariosConAsteriscos);
+      }
+
+      if (!respuesta.data.success) {
+        //No hay Comentarios
       }
     } catch (error) {
       alert("Ha ocurrido un error con los comentarios");
