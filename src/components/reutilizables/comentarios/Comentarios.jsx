@@ -62,7 +62,7 @@ export default function Comentarios({ section }) {
         //No hay Comentarios
       }
     } catch (error) {
-      alert("Ha ocurrido un error con los comentarios");
+      alert("Ha ocurrido un error con los comentarios" + error);
     } finally {
       setLoading(false);
     }
