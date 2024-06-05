@@ -2,7 +2,7 @@ import {
   MainMódulosCsharp,
   Subtemas,
 } from "../../reutilizables/mainCsharp/MainMódulosCsharp.jsx";
-
+import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 import { Footer } from "../../reutilizables/footer/Footer.jsx";
 import { Header } from "../../reutilizables/header/Header.jsx";
 import {
@@ -10,9 +10,6 @@ import {
   IntroducciónCsharp,
   IntroducciónProgramación,
 } from "./AcordeonesModulo1.jsx";
-
-import "./introducciónCsharp.css";
-import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 
 export function Modulo1() {
   return (

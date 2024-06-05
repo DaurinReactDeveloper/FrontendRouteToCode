@@ -215,7 +215,7 @@ export default function Comentarios({ section }) {
               <div className="div_contenedor_img_data">
                 <div className="div_img_comentario">
                   <img
-                    src="src/assets/img_comentarios.webp"
+                    src="public\img_comentarios.webp"
                     className="img-fluid img_comentarios"
                     alt="Imagen de usuario"
                   />

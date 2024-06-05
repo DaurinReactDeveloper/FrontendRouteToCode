@@ -96,11 +96,7 @@ export default function Register() {
       <main className="main_register">
         <section className="row">
           <article className="col section_register_img">
-            <img
-              src="\src\assets\img_register.webp"
-              alt=""
-              className="img-fluid"
-            />
+            <img src="public\img_register.webp" alt="" className="img-fluid" />
           </article>
 
           <article className="col  section_inputs_register">

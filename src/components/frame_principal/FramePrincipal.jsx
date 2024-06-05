@@ -19,7 +19,7 @@ export function FramePrincipal() {
         {/* Section img */}
         <section className="row_img_main_principal">
           <img
-            src="src\assets\img_frame_1.webp"
+            src="public\img_frame_1.webp"
             alt=""
             className="img-fluid img_main_principal"
           />

@@ -74,7 +74,7 @@ export default function IniciarSesión() {
           {/* PRIMERA COLUMNA */}
           <article className="col col_img_iniciarsesion">
             <img
-              src="\src\assets\img_login.webp"
+              src="public\img_login.webp"
               alt="img"
               className="img-fluid img_login"
             />
