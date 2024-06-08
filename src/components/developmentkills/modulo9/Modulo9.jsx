@@ -12,7 +12,7 @@ export function Modulo9() {
     <>
       <Header />
       <MainMódulosCsharp
-        nombreModulo={"MODULO 9 - GIT (CONTROLADOR DE VERSIONES) "}
+        nombreModulo={"MODULO 1 - GIT (CONTROLADOR DE VERSIONES) "}
         textoModulo={
           "En este módulo, te familiarizarás con Git, una herramienta esencial para el control de versiones en el desarrollo de software. Comenzarás con los conceptos básicos, entendiendo qué es Git, por qué es importante y cómo se utiliza en la gestión de proyectos. Luego, aprenderás los comandos fundamentales de Git que te permitirán realizar tareas básicas como crear repositorios, realizar commits, y gestionar ramas, entre otras operaciones esenciales para el trabajo colaborativo y el seguimiento de cambios en tu código."
         }
