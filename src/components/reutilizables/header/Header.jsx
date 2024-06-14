@@ -74,7 +74,7 @@ export function Header() {
                 <span>{userName}</span>
               </button>
             ) : (
-              <Link to={"/"} className="button_sesión" title="Iniciar Sesión">
+              <Link to={"/IniciarSesion"} className="button_sesión" title="Iniciar Sesión">
                 <IoPersonCircleOutline className="person_icon" />
                 <span>{ContentButton}</span>
               </Link>
