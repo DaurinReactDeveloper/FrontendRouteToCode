@@ -19,7 +19,9 @@ export function Header() {
 
   function cerrarSesión() {
     localStorage.removeItem("token");
-    navigation("/");
+    navigation("/Inicio");
+
+      window.location.reload();
   }
 
   return (

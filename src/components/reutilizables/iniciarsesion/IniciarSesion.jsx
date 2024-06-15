@@ -38,7 +38,6 @@ export default function IniciarSesión() {
   async function extraerUsuario() {
     try {
       const response = await axios.get(`${urlUser}/${email}/${password}`);
-      console.log(response.data);
 
       if (response.data.token) {
         setMensaje("USUARIO ENCONTRADO");

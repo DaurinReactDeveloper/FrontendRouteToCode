@@ -78,7 +78,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/IniciarSesion",
-    element: token ? <Navigate to="/Inicio" /> : <Navigate to="/IniciarSesion" />,
+    element: token ? <Navigate to="/Inicio" /> : <IniciarSesión/>,
     errorElement: "Ha Ocurrido un error",
   },
 ]);
