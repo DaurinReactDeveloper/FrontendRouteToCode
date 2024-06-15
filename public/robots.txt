@@ -1,6 +1,6 @@
 User-agent: *
 Disallow:
-Sitemap: https://routetocode.netlify.app/sitemap.xml
+sitemap: https://routetocode.netlify.app/sitemap.xml
 
 User-agent: Googlebot
 Disallow:
