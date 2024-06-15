@@ -29,7 +29,7 @@ export function Img_csharp() {
     <>
       <section className="row">
         <img
-          src="src/assets/img_frame_csharp.webp"
+          src="/img_frame_csharp.webp"
           alt="img_csharp"
           className="img-fluid img_módulos_csharp"
         />

@@ -49,6 +49,7 @@ export default function Comentarios({ section }) {
       const respuesta = await axios.get(
         `${urlComment}/GetBySection/${section}`
       );
+
       if (respuesta.data.success) {
         const comentariosConAsteriscos = respuesta.data.data.map((comment) => ({
           ...comment,
@@ -56,8 +57,12 @@ export default function Comentarios({ section }) {
         }));
         setComentarios(comentariosConAsteriscos);
       }
+
+      if (!respuesta.data.success) {
+        //No hay Comentarios
+      }
     } catch (error) {
-      alert("Ha ocurrido un error con los comentarios");
+      alert("Ha ocurrido un error con los comentarios" + error);
     } finally {
       setLoading(false);
     }
@@ -72,6 +77,7 @@ export default function Comentarios({ section }) {
           data: { commentId },
           headers: { Authorization: `Bearer ${tokenDelete}` },
         });
+
         GetComentarios();
       } catch (error) {
         alert("HA OCURRIDO UN ERROR ELIMINANDO EL COMENTARIO");
@@ -136,13 +142,14 @@ export default function Comentarios({ section }) {
     }
   }
 
-  function ValidarUsuario(idComentario) {
+  function ValidarUsuario(userIdComent) {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
     const userIdNumber = Number(userId);
+    const userIdComentConvert = Number(userIdComent)
 
     if (token) {
-      if (userIdNumber === idComentario) {
+      if (userIdNumber === userIdComentConvert) {
         return true;
       } else {
         return false;
@@ -215,16 +222,19 @@ export default function Comentarios({ section }) {
               <div className="div_contenedor_img_data">
                 <div className="div_img_comentario">
                   <img
-                    src="src/assets/img_comentarios.webp"
+                    src="/img_comentarios.webp"
                     className="img-fluid img_comentarios"
                     alt="Imagen de usuario"
                   />
                 </div>
                 <div className="div_data_comentarios">
+
                   <p className="p_nombre_usuario_comentario">
                     {comment.userName}
                   </p>
+
                   <p className="comentario">{comment.content}</p>
+
                   <div className="div_editar_eliminar_comentario">
                     <div className="md_delete_comentario">
                       {administrador && (
@@ -237,7 +247,8 @@ export default function Comentarios({ section }) {
                         </button>
                       )}
                     </div>
-                    {ValidarUsuario(comment.commentId) && (
+
+                    {ValidarUsuario(comment.userId) && (
                       <div className="md_edit_comentario">
                         <button
                           type="button"
@@ -258,6 +269,7 @@ export default function Comentarios({ section }) {
                         />
                       </div>
                     )}
+
                   </div>
                 </div>
               </div>

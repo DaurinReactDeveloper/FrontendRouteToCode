@@ -1,11 +1,10 @@
-import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 import { Footer } from "../../reutilizables/footer/Footer.jsx";
 import { Header } from "../../reutilizables/header/Header.jsx";
 import {
   MainMódulosCsharp,
   Subtemas,
 } from "../../reutilizables/mainCsharp/MainMódulosCsharp.jsx";
-
+import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 import { Arrays, Colecciones } from "./AcordeonesModulo4.jsx";
 
 export function Modulo4() {
