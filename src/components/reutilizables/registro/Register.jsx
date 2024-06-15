@@ -113,7 +113,7 @@ export default function Register() {
             <div className="div_input_register">
               <input
                 type="text"
-                placeholder="Name"
+                placeholder="UserName"
                 className="input_register"
                 onChange={extraerNombre}
                 required
