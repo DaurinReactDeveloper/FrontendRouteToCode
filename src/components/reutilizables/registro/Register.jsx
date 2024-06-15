@@ -113,7 +113,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerNombre}
                 required
-                maxLength={15}
+                maxLength={12}
                 minLength={5}
               />
               <input
@@ -122,7 +122,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerDireccion}
                 required
-                maxLength={15}
+                maxLength={25}
                 minLength={5}
               />
               <input
@@ -131,7 +131,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerEmail}
                 required
-                maxLength={15}
+                maxLength={38}
                 minLength={5}
               />
               <input
@@ -140,7 +140,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerPassword}
                 required
-                maxLength={15}
+                maxLength={12}
                 minLength={5}
               />
             </div>
