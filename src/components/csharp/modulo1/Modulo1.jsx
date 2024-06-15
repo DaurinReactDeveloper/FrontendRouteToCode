@@ -10,6 +10,7 @@ import {
   IntroducciónCsharp,
   IntroducciónProgramación,
 } from "./AcordeonesModulo1.jsx";
+import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 
 export function Modulo1() {
   return (

@@ -1,6 +1,6 @@
-import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 import { Footer } from "../../reutilizables/footer/Footer.jsx";
 import { Header } from "../../reutilizables/header/Header.jsx";
+import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 import {
   MainMódulosCsharp,
   Subtemas,

@@ -1,4 +1,3 @@
-import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 import { Footer } from "../../reutilizables/footer/Footer.jsx";
 import { Header } from "../../reutilizables/header/Header.jsx";
 import {
@@ -6,6 +5,7 @@ import {
   Subtemas,
 } from "../../reutilizables/mainCsharp/MainMódulosCsharp.jsx";
 import { GitComandos, GitConceptos } from "./AcordeonesModulo9.jsx";
+import Comentarios from "../../reutilizables/comentarios/Comentarios.jsx";
 
 export function Modulo9() {
   return (
