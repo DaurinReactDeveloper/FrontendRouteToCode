@@ -19,7 +19,7 @@ export default function Register() {
   const token = localStorage.getItem("token");
 
   if (token) {
-    navigate("/IniciarSesión");
+    navigate("/IniciarSesion");
   }
 
   const userDto = {
@@ -80,7 +80,7 @@ export default function Register() {
       if (usuario.status === 200) {
         setTextSuccess("SE HA AGREGADO CORRECTAMENTE - REDIRIGIENDO...");
         setTimeout(() => {
-          navigate("/IniciarSesión");
+          navigate("/IniciarSesion");
         }, 2000);
       } else {
         setTextSuccess("HA OCURRIDO UN ERROR");
