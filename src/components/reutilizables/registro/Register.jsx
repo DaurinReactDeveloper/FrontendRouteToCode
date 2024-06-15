@@ -117,7 +117,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerNombre}
                 required
-                maxLength={12}
+                maxLength={11}
                 minLength={5}
               />
               <input
@@ -126,7 +126,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerDireccion}
                 required
-                maxLength={25}
+                maxLength={22}
                 minLength={5}
               />
               <input
