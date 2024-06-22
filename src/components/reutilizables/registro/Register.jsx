@@ -144,7 +144,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerPassword}
                 required
-                maxLength={12}
+                maxLength={10}
                 minLength={5}
               />
             </div>
