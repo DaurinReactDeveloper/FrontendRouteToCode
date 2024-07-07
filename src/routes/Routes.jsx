@@ -17,7 +17,7 @@ const token = localStorage.getItem("token");
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: token ? <Navigate to="/Inicio" /> : <IniciarSesión />,
+    element: <Navigate to="/Inicio" />,
     errorElement: "Ha Ocurrido un error",
   },
   {
@@ -76,4 +76,10 @@ export const router = createBrowserRouter([
     element: token ? <Navigate to="/Inicio" /> : <Register />,
     errorElement: "Ha Ocurrido un error",
   },
+  {
+    path: "/IniciarSesion",
+    element: token ? <Navigate to="/Inicio" /> : <IniciarSesión/>,
+    errorElement: "Ha Ocurrido un error",
+  },
 ]);
+

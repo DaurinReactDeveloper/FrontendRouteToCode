@@ -38,7 +38,6 @@ export default function IniciarSesión() {
   async function extraerUsuario() {
     try {
       const response = await axios.get(`${urlUser}/${email}/${password}`);
-      console.log(response.data);
 
       if (response.data.token) {
         setMensaje("USUARIO ENCONTRADO");
@@ -74,7 +73,7 @@ export default function IniciarSesión() {
           {/* PRIMERA COLUMNA */}
           <article className="col col_img_iniciarsesion">
             <img
-              src="\src\assets\img_login.webp"
+              src="/img_login.webp"
               alt="img"
               className="img-fluid img_login"
             />

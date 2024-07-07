@@ -7,88 +7,93 @@ import axios from "axios";
 import "./register.css";
 
 export default function Register() {
-  //Variables a utilizar - para almacenar lo del input
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [textSuccess, setTextSuccess] = useState("");
+  const [textError, setTextError] = useState("");
 
-  //variable navegación para redirigir
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
   if (token) {
-    navigate("/IniciarSesión");
+    navigate("/IniciarSesion");
   }
 
   const userDto = {
-    name: `${name}`,
-    address: `${address}`,
-    email: `${email}`,
-    password: `${password}`,
+    name: name,
+    address: address,
+    email: email,
+    password: password,
+    rol:"user"
   };
 
-  function extraerNombre(e) {
-    const evento = e.target.value;
+  const extraerNombre = (e) => {
+    setName(e.target.value);
+  };
 
-    if (evento != null) {
-      setName(evento);
-    } else {
-      alert("HA OCURRIDO UN ERROR CON EL NOMBRE");
+  const extraerDireccion = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const extraerEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const extraerPassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const validarDatos = () => {
+    if (!name || name.length < 5 || name.length > 12) {
+      setTextError("El nombre debe tener entre 5 y 12 caracteres");
+      return false;
     }
-  }
-
-  function extraerDireccion(e) {
-    const evento = e.target.value;
-
-    if (evento != null) {
-      setAddress(evento);
-    } else {
-      alert("HA OCURRIDO UN ERROR CON EL NOMBRE");
+    if (!address || address.length < 5 || address.length > 25) {
+      setTextError("La dirección debe tener entre 5 y 25 caracteres");
+      return false;
     }
-  }
-
-  function extraerEmail(e) {
-    const evento = e.target.value;
-
-    if (evento != null) {
-      setEmail(evento);
-    } else {
-      alert("HA OCURRIDO UN ERROR CON EL NOMBRE");
+    if (!email || email.length < 5 || email.length > 38) {
+      setTextError("El email debe tener entre 5 y 38 caracteres");
+      return false;
     }
-  }
-
-  function extraerPassword(e) {
-    const evento = e.target.value;
-
-    if (evento != null) {
-      setPassword(evento);
-    } else {
-      alert("HA OCURRIDO UN ERROR CON EL NOMBRE");
+    if (!password || password.length < 5 || password.length > 12) {
+      setTextError("La contraseña debe tener entre 5 y 12 caracteres");
+      return false;
     }
-  }
+    return true;
+  };
 
-  async function agregarUsuario() {
+  const agregarUsuario = async () => {
+    if (!validarDatos()) {
+      return;
+    }
     try {
-      const usuario = await axios.post(`${urlUser}/Save/`, userDto, {
+      const response = await axios.post(`${urlUser}/Save/`, userDto, {
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      if (usuario.status === 200) {
+      if (response.status === 200) {
         setTextSuccess("SE HA AGREGADO CORRECTAMENTE - REDIRIGIENDO...");
+        setTextError("");
         setTimeout(() => {
-          navigate("/IniciarSesión");
+          navigate("/IniciarSesion");
         }, 2000);
       } else {
-        setTextSuccess("HA OCURRIDO UN ERROR");
+        setTextError(response.data);
       }
     } catch (error) {
-      console.log(error);
+      if (error.response) {
+        setTextError(`Error al agregar usuario: ${error.response.data}`);
+      } else {
+        setTextError("Error al agregar usuario");
+      }
+      console.error("Error al agregar usuario:", error);
     }
-  }
+  };
 
   return (
     <>
@@ -96,28 +101,23 @@ export default function Register() {
       <main className="main_register">
         <section className="row">
           <article className="col section_register_img">
-            <img
-              src="\src\assets\img_register.webp"
-              alt=""
-              className="img-fluid"
-            />
+            <img src="/img_register.webp" alt="" className="img-fluid" />
           </article>
 
-          <article className="col  section_inputs_register">
+          <article className="col section_inputs_register">
             <h2 className="h2_register">REGISTRO</h2>
             <p className="p_register">
-              NOS ALEGRA SABER, QUE QUIERES SER PARTE DE NUESTRA COMUNIDAD{" "}
-              {":)"}
+              NOS ALEGRA SABER, QUE QUIERES SER PARTE DE NUESTRA COMUNIDAD {":)"}
             </p>
 
             <div className="div_input_register">
               <input
                 type="text"
-                placeholder="Name"
+                placeholder="UserName"
                 className="input_register"
                 onChange={extraerNombre}
                 required
-                maxLength={15}
+                maxLength={10}
                 minLength={5}
               />
               <input
@@ -126,7 +126,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerDireccion}
                 required
-                maxLength={15}
+                maxLength={22}
                 minLength={5}
               />
               <input
@@ -135,7 +135,7 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerEmail}
                 required
-                maxLength={15}
+                maxLength={38}
                 minLength={5}
               />
               <input
@@ -144,17 +144,14 @@ export default function Register() {
                 className="input_register"
                 onChange={extraerPassword}
                 required
-                maxLength={15}
+                maxLength={10}
                 minLength={5}
               />
             </div>
 
             <div className="mensaje_registro">
-              {textSuccess ? (
-                <p className="p_success_registro_correcto">{textSuccess}</p>
-              ) : (
-                <p className="p_success_registro_incorrecto">{textSuccess}</p>
-              )}
+              {textSuccess && <p className="p_success_registro_correcto">{textSuccess}</p>}
+              {textError && <p className="p_success_registro_incorrecto">{textError}</p>}
             </div>
 
             <div className="div_button_registrarse">

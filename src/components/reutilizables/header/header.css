@@ -2,6 +2,10 @@
   font-family: "Anonymous Pro", monospace;
 }
 
+.offcanvas-backdrop.show{
+  opacity: 0;
+}
+
 .navbar {
   background-color: #1d8e96;
   padding: 1vw;
