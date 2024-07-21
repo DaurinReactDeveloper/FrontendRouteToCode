@@ -157,7 +157,7 @@ export function Colecciones() {
   return (
     <Acordeon
       titulo={"Colecciones"}
-      idControl={"collapseTen "}
+      idControl={"collapseTen"}
       expansion={false}
       collapsed={"collapsed"}
     >
